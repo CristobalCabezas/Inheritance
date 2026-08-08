@@ -9,7 +9,8 @@
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "python.linting.enabled": true,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "git.openRepositoryInParentFolders": "always"
       },
       "extensions": [
         "ms-python.python",
@@ -19,14 +20,20 @@
         "esbenp.prettier-vscode",
         "mtxr.sqltools",
         "mtxr.sqltools-driver-pg",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens"
       ]
     }
   },
 
   "forwardPorts": [8000, 5173, 5433],
 
-  "postCreateCommand": "cd backend && python manage.py migrate",
+  "mounts": [
+    "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached,readonly"
+  ],
+
+  "postCreateCommand": "git config --global --add safe.directory /workspaces/Inheritance && git config --global --add safe.directory '*' && cd backend && python manage.py migrate",
 
   "remoteUser": "root"
 }
