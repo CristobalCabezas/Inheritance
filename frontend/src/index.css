@@ -34,6 +34,8 @@
   --color-background: #f8f9ff;
   --color-on-background: #0d1c2f;
   --color-surface: #f8f9ff;
+  --color-on-surface: #0d1c2f;
+  --color-on-surface-variant: #444651;
   --color-surface-dim: #ccdbf4;
   --color-surface-bright: #f8f9ff;
   --color-surface-variant: #d5e3fd;
@@ -74,19 +76,34 @@
   --spacing-container-max: 1200px;
 }
 
-/* Base resets and dark mode palette variables */
+/* Base resets and color schemes */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
+  color: #0d1c2f;
+  background-color: #f8f9ff;
 }
 
 html {
   font-family: 'Inter', system-ui, sans-serif;
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
+}
+
+body {
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
 }
 
 .dark {
+  color-scheme: dark;
+  color: #ebf1ff;
+  background-color: #0b1526;
+
   --color-background: #0b1526;
   --color-on-background: #ebf1ff;
   --color-surface: #0b1526;
+  --color-on-surface: #ebf1ff;
+  --color-on-surface-variant: #9da7ba;
   --color-surface-dim: #091220;
   --color-surface-bright: #172439;
   --color-surface-variant: #1a2942;
@@ -95,8 +112,6 @@ html {
   --color-surface-container: #182a47;
   --color-surface-container-high: #1d3356;
   --color-surface-container-highest: #233c64;
-  --color-on-surface: #ebf1ff;
-  --color-on-surface-variant: #9da7ba;
   --color-outline: #6b7a94;
   --color-outline-variant: #263854;
   --color-primary: #8bb2ff;
